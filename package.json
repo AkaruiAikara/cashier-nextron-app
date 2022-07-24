@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "electron-serve": "^1.1.0",
-    "electron-store": "^8.0.2"
+    "electron-store": "^8.0.2",
+    "react-icons": "^4.4.0"
   },
   "devDependencies": {
     "@types/node": "^18.0.6",
