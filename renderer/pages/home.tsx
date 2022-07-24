@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
-import Cards from "./../components/ui/home/Cards";
+import Welcome from "../components/ui/Welcome";
+import Cards from "../components/ui/home/Cards";
 import Chart from "../components/ui/home/Chart";
 
 function Home() {
@@ -9,10 +10,7 @@ function Home() {
       <Head>
         <title>Home - D.fy</title>
       </Head>
-      <div className="mb-12">
-        <div className="text-3xl font-semibold mb-2">Welcome, Fallah</div>
-        <span className="text-gray-500">Discover whatever you need easily</span>
-      </div>
+      <Welcome name="Fallah" />
       <Cards />
       <Chart type="bar" />
     </React.Fragment>
