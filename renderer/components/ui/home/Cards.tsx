@@ -28,7 +28,7 @@ const Cards = () => {
     },
   ];
   return (
-    <div className="flex flex-row gap-8">
+    <div className="flex flex-row justify-between gap-8">
       {cards.map((card, index) => (
         <div
           key={index}
