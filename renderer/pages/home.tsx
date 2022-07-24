@@ -9,16 +9,12 @@ function Home() {
       <Head>
         <title>Home - D.fy</title>
       </Head>
-      <div className="p-8">
-        <div className="mb-6">
-          <div className="text-3xl font-semibold mb-2">Welcome, Fallah</div>
-          <span className="text-gray-500">
-            Discover whatever you need easily
-          </span>
-        </div>
-        <Cards />
-        <Chart type="bar" />
+      <div className="mb-12">
+        <div className="text-3xl font-semibold mb-2">Welcome, Fallah</div>
+        <span className="text-gray-500">Discover whatever you need easily</span>
       </div>
+      <Cards />
+      <Chart type="bar" />
     </React.Fragment>
   );
 }

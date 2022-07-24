@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { HiHome, HiViewGrid, HiUserCircle } from "react-icons/hi";
 import { MdCategory, MdHistory, MdOutlineLogout } from "react-icons/md";
@@ -11,18 +12,18 @@ const icons = [
   {
     name: "Product",
     icon: <HiViewGrid size={20} />,
-    url: "/product",
+    url: "/products",
   },
   {
     name: "Category",
     icon: <MdCategory size={20} />,
 
-    url: "/category",
+    url: "/categories",
   },
   {
     name: "Transaction",
     icon: <MdHistory size={20} />,
-    url: "/transaction",
+    url: "/transactions",
   },
 ];
 
@@ -35,7 +36,7 @@ const icons2 = [
   {
     name: "Logout",
     icon: <MdOutlineLogout size={20} />,
-    url: "/logout",
+    action: () => {},
   },
 ];
 
@@ -48,33 +49,54 @@ const Navbar = () => {
       </span>
       <div className="flex flex-col gap-2">
         {icons.map((icon, index) => (
-          <button
-            key={index}
-            className={`flex justify-center items-center w-12 h-12 rounded-lg hover:(bg-teal-100 text-teal-500) group-hover:(w-52 justify-start gap-4 px-4) transition-all duration-200 ${
-              router.pathname.startsWith(icon.url)
-                ? "bg-teal-200 text-teal-600"
-                : "text-gray-400"
-            }`}
-          >
-            {icon.icon}
-            <span className="hidden w-0 group-hover:(block w-auto)">
-              {icon.name}
-            </span>
-          </button>
+          <Link href={icon.url}>
+            <a
+              key={index}
+              className={`flex justify-center items-center w-12 h-12 rounded-lg hover:(bg-teal-100 text-teal-500) group-hover:(w-52 justify-start gap-4 px-4) transition-all duration-200 ${
+                router.pathname.startsWith(icon.url)
+                  ? "bg-teal-200 text-teal-600"
+                  : "text-gray-400"
+              }`}
+            >
+              {icon.icon}
+              <span className="hidden w-0 group-hover:(block w-auto)">
+                {icon.name}
+              </span>
+            </a>
+          </Link>
         ))}
       </div>
       <div className="flex flex-col gap-2 mb-6">
-        {icons2.map((icon, index) => (
-          <button
-            key={index}
-            className="flex justify-center items-center w-12 h-12 rounded-lg hover:(bg-teal-100 text-teal-500) group-hover:(w-52 justify-start gap-4 px-4) transition-all duration-200 text-gray-400"
-          >
-            {icon.icon}
-            <span className="hidden w-0 group-hover:(block w-auto)">
-              {icon.name}
-            </span>
-          </button>
-        ))}
+        {icons2.map((icon, index) =>
+          icon.url ? (
+            <Link href={icon.url}>
+              <a
+                key={index}
+                className={`flex justify-center items-center w-12 h-12 rounded-lg hover:(bg-teal-100 text-teal-500) group-hover:(w-52 justify-start gap-4 px-4) transition-all duration-200 ${
+                  router.pathname.startsWith(icon.url)
+                    ? "bg-teal-200 text-teal-600"
+                    : "text-gray-400"
+                }`}
+              >
+                {icon.icon}
+                <span className="hidden w-0 group-hover:(block w-auto)">
+                  {icon.name}
+                </span>
+              </a>
+            </Link>
+          ) : (
+            <button
+              key={index}
+              onClick={icon.action}
+              className="flex justify-center items-center w-12 h-12 rounded-lg hover:(bg-teal-100 text-teal-500) group-hover:(w-52 justify-start gap-4 px-4) transition-all duration-200 text-gray-400"
+            >
+              {icon.icon}
+              <span className="hidden w-0 group-hover:(block w-auto)">
+                {icon.name}
+              </span>
+            </button>
+          )
+        )}
       </div>
     </div>
   );
