@@ -73,6 +73,7 @@ export default (
   const browserOptions: BrowserWindowConstructorOptions = {
     ...options,
     ...state,
+    autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,

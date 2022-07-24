@@ -49,9 +49,8 @@ const Navbar = () => {
       </span>
       <div className="flex flex-col gap-2">
         {icons.map((icon, index) => (
-          <Link href={icon.url}>
+          <Link key={index} href={icon.url}>
             <a
-              key={index}
               className={`flex justify-center items-center w-12 h-12 rounded-lg hover:(bg-teal-100 text-teal-500) group-hover:(w-52 justify-start gap-4 px-4) transition-all duration-200 ${
                 router.pathname.startsWith(icon.url)
                   ? "bg-teal-200 text-teal-600"
@@ -69,7 +68,7 @@ const Navbar = () => {
       <div className="flex flex-col gap-2 mb-6">
         {icons2.map((icon, index) =>
           icon.url ? (
-            <Link href={icon.url}>
+            <Link key={index} href={icon.url}>
               <a
                 key={index}
                 className={`flex justify-center items-center w-12 h-12 rounded-lg hover:(bg-teal-100 text-teal-500) group-hover:(w-52 justify-start gap-4 px-4) transition-all duration-200 ${
