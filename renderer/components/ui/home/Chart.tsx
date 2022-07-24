@@ -1,4 +1,6 @@
-import ApexChart from "react-apexcharts";
+import dynamic from "next/dynamic";
+
+const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const options = {
   chart: {
@@ -68,14 +70,15 @@ const Chart = ({ type }) => {
     <div className="bg-white p-8 rounded-xl my-8">
       <div className="text-xl mb-8">Last week transactions</div>
       <div className="flex flex-row justify-between">
-        <ApexChart
-          options={options}
-          series={series}
-          type={type}
-          width={768}
-          height={320}
-        />
-
+        {typeof window !== "undefined" && (
+          <ApexChart
+            options={options}
+            series={series}
+            type={type}
+            width={768}
+            height={320}
+          />
+        )}
         <div className="h-320px overflow-auto relative">
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

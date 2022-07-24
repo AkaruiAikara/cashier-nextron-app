@@ -17,7 +17,7 @@ function Home() {
           </span>
         </div>
         <Cards />
-        {window && <Chart type="bar" />}
+        <Chart type="bar" />
       </div>
     </React.Fragment>
   );
