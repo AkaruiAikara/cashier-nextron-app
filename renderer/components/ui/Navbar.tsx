@@ -42,9 +42,9 @@ const icons2 = [
 const Navbar = () => {
   const router = useRouter();
   return (
-    <div className="sticky flex flex-col justify-between items-center h-screen w-14 group hover:w-56 transform-gpu transition-all duration-300 ease-in-out px-8">
+    <div className="sticky top-0 flex flex-col justify-between items-center h-screen max-h-screen w-14 group hover:w-56 transform-gpu transition-all duration-300 ease-in-out px-8">
       <span className="font-varela font-semibold text-2xl pt-6 text-teal-700">
-        Dfy
+        D.fy
       </span>
       <div className="flex flex-col gap-2">
         {icons.map((icon, index) => (
@@ -57,7 +57,9 @@ const Navbar = () => {
             }`}
           >
             {icon.icon}
-            <span className="hidden group-hover:(block)">{icon.name}</span>
+            <span className="hidden w-0 group-hover:(block w-auto)">
+              {icon.name}
+            </span>
           </button>
         ))}
       </div>
@@ -68,7 +70,9 @@ const Navbar = () => {
             className="flex justify-center items-center w-12 h-12 rounded-lg hover:(bg-teal-100 text-teal-500) group-hover:(w-52 justify-start gap-4 px-4) transition-all duration-200 text-gray-400"
           >
             {icon.icon}
-            <span className="hidden group-hover:(block)">{icon.name}</span>
+            <span className="hidden w-0 group-hover:(block w-auto)">
+              {icon.name}
+            </span>
           </button>
         ))}
       </div>
