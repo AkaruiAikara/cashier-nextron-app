@@ -41,10 +41,8 @@ const icons2 = [
 
 const Navbar = () => {
   const router = useRouter();
-  console.log(router);
-
   return (
-    <div className="sticky flex flex-col justify-between items-center h-screen w-14 px-8">
+    <div className="sticky flex flex-col justify-between items-center h-screen w-14 group hover:w-56 transform-gpu transition-all duration-300 ease-in-out px-8">
       <span className="font-varela font-semibold text-2xl pt-6 text-teal-700">
         Dfy
       </span>
@@ -52,13 +50,14 @@ const Navbar = () => {
         {icons.map((icon, index) => (
           <button
             key={index}
-            className={`flex justify-center items-center w-12 h-12 rounded-lg hover:(bg-teal-100 text-teal-500) transition-colors duration-200 ${
+            className={`flex justify-center items-center w-12 h-12 rounded-lg hover:(bg-teal-100 text-teal-500) group-hover:(w-52 justify-start gap-4 px-4) transition-all duration-200 ${
               router.pathname.startsWith(icon.url)
                 ? "bg-teal-200 text-teal-600"
                 : "text-gray-400"
             }`}
           >
             {icon.icon}
+            <span className="hidden group-hover:(block)">{icon.name}</span>
           </button>
         ))}
       </div>
@@ -66,9 +65,10 @@ const Navbar = () => {
         {icons2.map((icon, index) => (
           <button
             key={index}
-            className="flex justify-center items-center w-12 h-12 rounded-lg hover:(bg-teal-100 text-teal-500) transition-colors duration-200 text-gray-400"
+            className="flex justify-center items-center w-12 h-12 rounded-lg hover:(bg-teal-100 text-teal-500) group-hover:(w-52 justify-start gap-4 px-4) transition-all duration-200 text-gray-400"
           >
             {icon.icon}
+            <span className="hidden group-hover:(block)">{icon.name}</span>
           </button>
         ))}
       </div>
