@@ -9,7 +9,7 @@ const Product = () => {
   return (
     <React.Fragment>
       <Head>
-        <title>Home - D.fy</title>
+        <title>Products - D.fy</title>
       </Head>
       <div className="flex flex-row justify-between items-center mb-12">
         <Welcome name="Fallah" />
